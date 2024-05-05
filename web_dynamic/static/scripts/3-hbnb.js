@@ -16,7 +16,7 @@ $(() => {
     }
   });
 
-  $.get('http://0.0.0.0:5001/api/v1/status').done((data, status) => {
+  $.get('http://127.0.0.1:5001/api/v1/status').done((data, status) => {
     if (data.status === 'OK') $('#api_status').addClass('available');
     else $('#api_status').removeClass('available');
   })
@@ -24,7 +24,7 @@ $(() => {
 
   $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    url: 'http://127.0.0.1:5001/api/v1/places_search/',
     contentType: 'application/json',
     data: JSON.stringify({})
   }).done((data) => {
@@ -41,7 +41,7 @@ $(() => {
             <div class="number_bathrooms">${ place.number_bathrooms } Bathroom</div>
         </div>
         <div class="description">
-          ${ place.description }
+          <b>Description</b> <br />${ place.description }
         </div>
       </article>`;
       $('section.places').append(template);
