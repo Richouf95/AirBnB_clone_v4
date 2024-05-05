@@ -21,7 +21,9 @@ $(() => {
     else $('#api_status').removeClass('available');
   })
 
-  $.post({
+
+  $.ajax({
+    type: 'POST',
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
     contentType: 'application/json',
     data: JSON.stringify({})
@@ -45,5 +47,7 @@ $(() => {
       $('section.places').append(template);
     }
   });
+
+
 
 });
